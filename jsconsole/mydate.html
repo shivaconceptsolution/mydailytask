@@ -1,0 +1,47 @@
+
+  <h2>Next Batch Starts: <span id="batchDate"></span></h2>
+  <p><span id="daysRemaining"></span> remaining for enrollment</p>
+
+  <script>
+    function getNextSaturday() {
+      const today = new Date();
+      const day = today.getDay(); // Sunday=0, Monday=1 ... Saturday=6
+      let daysToSaturday = (6 - day); 
+
+      // If today is Saturday but time has already passed, go to next Saturday
+      if (daysToSaturday < 0) {
+        daysToSaturday += 7;
+      }
+
+      // If today is Saturday itself, keep it as today
+      if (day === 6 && today.getHours() >= 0) {
+        daysToSaturday = 0;
+      }
+
+      const nextSaturday = new Date(today);
+      nextSaturday.setDate(today.getDate() + daysToSaturday);
+      return nextSaturday;
+    }
+
+    function formatDate(date) {
+      const yyyy = date.getFullYear();
+      const mm = String(date.getMonth() + 1).padStart(2, '0');
+      const dd = String(date.getDate()).padStart(2, '0');
+      return `${dd}-${mm}-${yyyy}`;
+    }
+
+    function updateBatchInfo() {
+      const today = new Date();
+      const nextSaturday = getNextSaturday();
+
+      // Calculate remaining days
+      const diffTime = nextSaturday - today;
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+      document.getElementById("batchDate").textContent = formatDate(nextSaturday);
+      document.getElementById("daysRemaining").textContent = 
+        diffDays === 0 ? "Batch starts today!" : `${diffDays} days remaining`;
+    }
+
+    updateBatchInfo();
+  </script>

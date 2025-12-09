@@ -1,0 +1,186 @@
+
+  <style>
+    /* Unique Projects Section */
+    .projects-section {
+      padding: 5rem 1rem;
+      background: #f9fafb; /* white-gray background */
+      font-family: "Poppins", sans-serif;
+    }
+
+    .projects-section .ps-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .projects-section .ps-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 1rem;
+    }
+
+    .projects-section .ps-title span {
+      color: #9f7aea; /* violet accent */
+    }
+
+    .projects-section .ps-lead {
+      color: #4b5563;
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    /* Grid Layout */
+    .projects-section .ps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+    @media (min-width: 768px) {
+      .projects-section .ps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .projects-section .ps-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Card */
+    .projects-section .ps-card {
+      background-color: #ffffff;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .projects-section .ps-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .projects-section .ps-card::before {
+      content: "";
+      position: absolute;
+      top: -40%;
+      left: -40%;
+      width: 180%;
+      height: 180%;
+      background: radial-gradient(circle, rgba(159,122,234,0.1), transparent 70%);
+      transform: scale(0);
+      transition: transform 0.4s ease;
+      border-radius: 50%;
+    }
+    .projects-section .ps-card:hover::before {
+      transform: scale(1);
+    }
+
+    .projects-section .ps-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #1f2937;
+    }
+
+    .projects-section .ps-card p {
+      flex: 1;
+      color: #4b5563;
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .projects-section .ps-tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .projects-section .ps-tech-list span {
+      font-size: 0.8rem;
+      background: #f3f4f6; /* light gray */
+      color: #6b21a8; /* deep violet text */
+      padding: 0.35rem 0.9rem;
+      border-radius: 9999px;
+      font-weight: 500;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .projects-section .ps-card:hover .ps-tech-list span {
+      background: #9f7aea;
+      color: #ffffff;
+    }
+
+    .projects-section .ps-view-link {
+      align-self: flex-start;
+      font-weight: 600;
+      color: #9f7aea;
+      transition: color 0.2s ease;
+      font-size: 0.95rem;
+    }
+    .projects-section .ps-view-link:hover {
+      color: #7c3aed;
+    }
+  </style>
+</head>
+<body>
+  <section class="projects-section" id="projects">
+    <div class="ps-container">
+      <h2 class="ps-title">Featured <span>Projects</span></h2>
+      <p class="ps-lead">
+        Explore real-world applications built with modern technologies.
+        These projects showcase full-stack development skills with quality and polish.
+      </p>
+      <div class="ps-grid" id="ps-projectGrid"></div>
+    </div>
+  </section>
+
+  <script>
+    const projects = [
+      {
+        title: "E-Commerce Platform",
+        description:
+          "A full-stack e-commerce solution with product listings, secure payments, order history, and admin dashboard.",
+        tech: ["ASP.NET Core", "React", "SQL Server", "Entity Framework"],
+        link: "#",
+      },
+      {
+        title: "Learning Management System",
+        description:
+          "A robust LMS platform with modules, quizzes, progress tracking, and roles for admin, teacher, student.",
+        tech: ["C#", "ASP.NET Core Web API", "Angular", "Azure"],
+        link: "#",
+      },
+      {
+        title: "Healthcare Management App",
+        description:
+          "Manage appointments, digital patient records, doctor notifications, real-time updates and analytics.",
+        tech: [".NET 6", "Blazor", "EF Core", "SignalR"],
+        link: "#",
+      },
+    ];
+
+    const psGrid = document.getElementById("ps-projectGrid");
+
+    projects.forEach(proj => {
+      const card = document.createElement("div");
+      card.className = "ps-card";
+      card.innerHTML = `
+        <h3>${proj.title}</h3>
+        <p>${proj.description}</p>
+        <div class="ps-tech-list">
+          ${proj.tech.map(t => `<span>${t}</span>`).join("")}
+        </div>
+        <a class="ps-view-link" href="${proj.link}">View Project →</a>
+      `;
+      psGrid.appendChild(card);
+    });
+  </script>
+

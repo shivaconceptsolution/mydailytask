@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var count=0;
+
+        function showdata(a)
+        {
+          document.getElementById("res").innerHTML=a;
+          document.getElementById("sp").innerHTML=count;
+          count++;
+          console.log(count);
+          if(count>10)
+          {
+            document.getElementById("r").readOnly=true;
+          }
+        }
+    </script>
+</head>
+<body>
+    <textarea id="r" rows="10" cols="50"  onkeyup="showdata(this.value)">
+
+    </textarea>
+    <span id="sp"></span>
+    <div id="res"></div>
+</body>
+</html>

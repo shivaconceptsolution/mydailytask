@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function changecolor(c)
+        {
+          document.getElementById("b").style.backgroundColor=c;
+          document.getElementById("txt").style.backgroundColor='Orange';
+          document.getElementById("txt").style.width="500px";
+        }
+    </script>
+</head>
+<body id="b">
+    <input type="text" id="txt" /> <br>
+    <input type="radio" name="color" value="Red" onchange="changecolor(this.value)" ><label>RED</label> <br>
+    <input type="radio" name="color" value="GREEN" onchange="changecolor(this.value)" ><label>GREEN</label> <br>
+    <input type="radio" name="color" value="BLUE" onchange="changecolor(this.value)"><label>BLUE</label> <br>
+
+</body>
+</html>

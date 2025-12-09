@@ -1,0 +1,7 @@
+it provide css properties based on screen size , it  is used to create 
+responsive design layout.
+
+it provide @media block for multiple screen size to write different css 
+for different screen.
+
+

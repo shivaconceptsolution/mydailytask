@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var data=''
+        function showcourse(param)
+        {
+           document.getElementById("course").innerHTML=param;
+        }
+        function showcourse1(param)
+        {
+            data = param;
+        }
+        function showresult()
+        {
+            document.getElementById("course1").innerHTML=data;
+        }
+    </script>
+</head>
+<body>
+    <p>Choose AI Agent</p>
+    <input type="radio" value="CHAT GPT" name="ai" onchange="showcourse(this.value)"  /> <label>CHAT GPT</label><br/>
+    <input type="radio" value="GEMINI" name="ai" onchange="showcourse(this.value)" /> <label>GEMINI</label> <br/>
+    <input type="radio" value="CO-PIOLET" name="ai" onchange="showcourse(this.value)" /> <label>CO-PIOLET</label> <br/>
+    <input type="radio" value="GROC" name="ai" onchange="showcourse(this.value)" /> <label>GROC</label> <br/>
+    <hr>
+    <div id="course"> </div>
+    <hr>
+    <p>Choose AI Agent</p>
+    <input type="radio" value="CHAT GPT" name="ai1" onchange="showcourse1(this.value)"  /> <label>CHAT GPT</label><br/>
+    <input type="radio" value="GEMINI" name="ai1" onchange="showcourse1(this.value)" /> <label>GEMINI</label> <br/>
+    <input type="radio" value="CO-PIOLET" name="ai1" onchange="showcourse1(this.value)" /> <label>CO-PIOLET</label> <br/>
+    <input type="radio" value="GROC" name="ai1" onchange="showcourse1(this.value)" /> <label>GROC</label> <br/>
+    <input type="button" value="Click" onclick="showresult()" />
+    <hr>
+    <div id="course1"> </div>
+
+    <hr>
+
+    
+</body>
+</html>

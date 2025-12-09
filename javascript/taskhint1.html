@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var basic=''
+        var fee=0
+        var course=''
+        
+        function calcbasic(a)
+        {
+               basic=a;
+               course = basic.substring(0,basic.indexOf(":")) + " ";
+               fee = parseInt(basic.substring(basic.indexOf(":")+1));
+               console.log(course,fee);
+        }
+        function total()
+        {
+            var course1=''
+            var ad = document.getElementsByName("adv");
+            let advance=''
+            for(let i=0;i<ad.length;i++)
+            {
+                if(ad[i].checked)
+                {
+                    advance=ad[i].value;
+                    course1 =course1 + advance.substring(0,advance.indexOf(":"))+ " ";
+                    fee = fee+ parseInt(advance.substring(advance.indexOf(":")+1));
+                }
+            }
+
+document.getElementById("res").innerHTML=course + course1 + " ,"+fee;
+        }
+    </script>
+</head>
+<body>
+    <div style="float:left">
+        <input type="radio" name="basic" value="C:2500" onchange="calcbasic(this.value)" /><label>C Fee:2500</label>
+        <br/>
+        <input type="radio" name="basic" value="CPP:3500" onchange="calcbasic(this.value)"  /><label>CPP Fee:3500</label>
+    </div>
+    <div style="float:left;">
+        <input type="checkbox" name="adv" value="JAVA:35000"  /><label>JAVA Fee:35000</label>
+        <br/>
+        <input type="checkbox" name="adv" value="MERN:25000"  /><label>MERN Fee:25000</label>
+    </div>
+    <div style="clear: both;">
+
+        <input type="button" value="Calculate TOTAL FEES"  onclick="total()" />
+    </div>
+   <div id="res">
+
+   </div>
+
+</body>
+</html>

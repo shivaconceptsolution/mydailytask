@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function selectFun()
+        {
+           var country = document.getElementById("lst");
+           console.log(country.length);
+           var item=''
+           for(let i=0;i<country.length;i++)
+           {
+              if(country[i].selected)
+              {
+               item= item + country[i].value + " ";
+              }
+           }
+           document.getElementById("res1").innerHTML=item;
+        }
+    </script>
+</head>
+<body>
+    <select id="lst" multiple>
+       
+        <option value="INDIA">INDIA</option>
+        <option value="USA">USA</option>
+        <option value="CHINA">CHINA</option>
+        <option value="JAPAN">JAPAN</option>
+        <option value="JAPAN1">JAPAN1</option>
+        <option value="JAPAN2">JAPAN2</option>
+        <option value="JAPAN3">JAPAN3</option>
+        <option value="JAPAN4">JAPAN4</option>
+    </select>
+    <br><br>
+    <input type="button" value="click" onclick="selectFun()" />
+    <div id="res1"></div>
+</body>
+</html>

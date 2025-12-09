@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function add()
+        {
+            //alert("Hello World");
+            var num1 = document.getElementById("txtnum1").value; //"2"
+            var num2 = document.getElementById("txtnum2").value; //"2"
+            var r =parseInt(num1)+parseInt(num2); //2+2
+            alert("result is "+r);
+
+        }
+        function sub()
+        {
+            var num1 = document.getElementById("txtnum1").value; //"2"
+            var num2 = document.getElementById("txtnum2").value; //"2"
+            var r =parseInt(num1)-parseInt(num2); //2+2
+            alert("result is "+r);
+        }
+    </script>
+</head>
+<body>
+<!--    <input type="button" value="click" /> -->
+<input type="number" placeholder="Enter First Number" id="txtnum1" />
+<br/>
+<input type="number" placeholder="Enter Second Number" id="txtnum2" />
+<br />
+<button onclick="add()">ADD</button>
+
+<button onclick="sub()">SUBSTRACTION</button>
+</body>
+</html>
